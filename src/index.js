@@ -10,11 +10,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // const routerLogin = require('./routes/login');
 // app.use('/login', routerLogin);
 
+// ---------------------------------------------------------------
 const routerEquipos = require("./routes/equipos");
 // const authValidator = require('./middlewares/authValidator');
 // app.use("/usuarios", authValidator, routerUsuarios);
 app.use("/equipos", routerEquipos);
-
+// ---------------------------------------------------------------
+const routerEncuentros = require("./routes/encuentros");
+app.use("/encuentros", routerEncuentros);
+// ---------------------------------------------------------------
 app.get("/*", (req, res) => {
     res.end("Archivo no encontrado");
 });

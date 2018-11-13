@@ -1,7 +1,7 @@
 const {Schema, mongoose} = require("../database/database")
 var equipo = new Schema({
                         descripcion: String,
-                        imagen: String,
+                        url: String,
                         jugados: Number,
                         ganados: Number,
                         empatados: Number,
