@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 
-class tablaDePosiciones extends Component {
+class TablaDePosiciones extends Component {
     
     constructor() {
         super();
         this.state = {
             equipos: [],
             fixture: [],
-            encuentroSeleccionado : ""
+            encuentroSeleccionado : {}
         };
     }
 
@@ -77,15 +77,14 @@ class tablaDePosiciones extends Component {
     }
 
     clickModal(encuentro){
-        
         this.setState({
             encuentroSeleccionado: encuentro
         })
-        
     }
 
     saveChanges(){
-        console.log(this.state.encuentroSeleccionado.local._id)
+        console.log(this.state.encuentroSeleccionado.local.descripcion)
+        console.log(this.state.encuentroSeleccionado.visitante.descripcion)
     }
 
     render() {
@@ -179,9 +178,12 @@ class tablaDePosiciones extends Component {
                                                             </button>
                                                         </div>
                                                         <div className="modal-body">
-                                                            <div style={{height:"40px", width:"40px"}}>
+                                                            {
+                                                                this.state.encuentroSeleccionado.local.descripcion
+                                                            }
+                                                            {/* <div style={{height:"40px", width:"40px"}}>
                                                                 <img src={this.state.encuentroSeleccionado.local.url} className="img-fluid" alt="Responsive image"></img>
-                                                            </div>
+                                                            </div> */}
                                                         </div>
                                                         <div className="modal-footer">
                                                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -206,4 +208,4 @@ class tablaDePosiciones extends Component {
     }
 }
 
-export default tablaDePosiciones;
+export default TablaDePosiciones;
